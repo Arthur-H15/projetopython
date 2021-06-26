@@ -16,16 +16,42 @@ margin: auto;
 .navbar-light .navbar-nav a.nav-link{
     color:#333;
     letter-spacing: 1px;}
+    /*botao adicionar 
+    */
+.botao{
+    background-color: aqua;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+.fas.fa-plus{
+    color: #fff;
+    margin-right: 20px;
+    margin-left: 10px;}
+    /*busca*/
+i.fas.fa-search  {cursor: pointer;position: absolute;margin-top: 12px;margin-left: 12px;}
 
-/*Lista de tarefa   */
+
+
+.pesquisa{
+    padding: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    }
+ input.form-control{display: inline-block;}
+/*Lista de tarefa */
 .lis-div {padding: 0px;}
-.task-lista {padding-left: 0;}
-.task-ite {
+.task-list {padding-left: 0;}
+.task-item {
     list-style: none;
     font-size: 20px;
     height: 50px;
     padding-top: 10px;
-    border: 1px dashed #ccc;}
+    border-bottom: 1px dashed #ccc;}
 .fas.fa-trash,.fas.fa-edit{
         cursor: pointer;
         font-size: 20px;
@@ -33,6 +59,7 @@ margin: auto;
         float: right;}
 .fas.fa-trash{color: red;}
 .fas.fa-edit{color: green;}
+
 
 
 
