@@ -2,7 +2,24 @@
 {%block title %}Lista de tarefaz{% endblock %}
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    
+    <h2>lista de tarefaz</h2>
+    <div class="col-2 botao">
+        <i class="fas fa-plus"></i>Adicionar tarefa
+    </div>
+    <div class="col-9 pesquisa">
+        <input type="text" id="pesquisa" name="pesquisa" placeholder="digite a tarefa">
+        <i class="fas fa-search"></i>
+    </div>
+    <ul class="task-lista">
+        <li class="task-ite">
+            <span>titulo da tarefa</span>
+            <span><i class="fas fa-trash"></i></span>
+            <span><i class="fas fa-edit"></i></span>
+        </li>
+
+
+
+    </ul>
 </div>
 
 {% endblock %}
