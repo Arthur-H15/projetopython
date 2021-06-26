@@ -1,0 +1,28 @@
+.container-fluid {padding: 0px;}
+
+/*barra te navegaçao */
+.navbar{
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+}
+.navbar-nav{
+margin: auto;
+
+}
+.navbar-brand{
+    font-weight: bold;
+
+}
+.navbar-light .navbar-nav a.nav-link{
+    color:#333;
+    letter-spacing: 1px;}
+   /*rodape */
+   footer{
+        background-color: #333;
+        height: 300px;
+        border-top: #202020 solid 1px;  
+    } 
+    footer p{color: #f5f5f5;
+                text-align: center;
+            top: 50%;
+        position: relative;}
