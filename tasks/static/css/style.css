@@ -18,6 +18,7 @@ margin: auto;
     letter-spacing: 1px;}
     /*botao adicionar 
     */
+ #add-link{text-decoration: none;}   
 .botao{
     background-color: aqua;
     cursor: pointer;
@@ -32,7 +33,7 @@ margin: auto;
     margin-right: 20px;
     margin-left: 10px;}
     /*busca*/
-i.fas.fa-search  {cursor: pointer;position: absolute;margin-top: 12px;margin-left: 12px;}
+.fas.fa-search  {cursor: pointer;position: absolute;margin-top: 0px;margin-left: 0px;padding: 10px;border: 1px solid black; border-radius: 5px ;}
 
 
 
@@ -45,13 +46,16 @@ i.fas.fa-search  {cursor: pointer;position: absolute;margin-top: 12px;margin-lef
  input.form-control{display: inline-block;}
 /*Lista de tarefa */
 .lis-div {padding: 0px;}
-.task-list {padding-left: 0;}
+.task-list {padding-left: 0;
+text-decoration: none;}
 .task-item {
     list-style: none;
     font-size: 20px;
     height: 50px;
     padding-top: 10px;
-    border-bottom: 1px dashed #ccc;}
+    border-bottom: 1px dashed #ccc;
+    text-decoration: none;}
+ a {text-decoration: none;}
 .fas.fa-trash,.fas.fa-edit{
         cursor: pointer;
         font-size: 20px;
@@ -59,6 +63,14 @@ i.fas.fa-search  {cursor: pointer;position: absolute;margin-top: 12px;margin-lef
         float: right;}
 .fas.fa-trash{color: red;}
 .fas.fa-edit{color: green;}
+/* mensagens*/
+ul.messages {padding: 0;list-style: none;}
+/*paginaçao*/
+.pagina{margin-bottom: 10px;}
+.pagina-Link{position: relative;margin-left: auto;margin-right: auto;}
+.pagina-Link .current{margin-left: 5px;margin-right: 5px;}
+
+
 
 
 

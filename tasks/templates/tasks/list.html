@@ -3,23 +3,53 @@
 {% block content %}
 <div class="offset-1 col-10 list-div">
     <h2>lista de tarefaz</h2>
-    <div class="col-2 botao">
+    <a id="add-link" href="novatarefa/">
+        <div class="col-2 botao">
         <i class="fas fa-plus"></i>Adicionar tarefa
-    </div>
+        {{message.tags}}</div>
+    </a>
     <div class="col-9 pesquisa">
         <input class="form-control"  type="text" id="search" name="pesquisa" placeholder="digite a tarefa">
         <i class="fas fa-search "></i>
-    </div>
+    </div>  
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {%if message.tags %} class="alert alert-{{message.tags}}"{%endif%}>{{message}}</li>
+        {% endfor %}
+
+    </ul>
+
+
+    {% endif %}
     <ul class="task-list">
+        {%for task in tasks%}
         <li class="task-item">
-            <span>titulo da tarefa</span>
-            <span><i class="fas fa-trash"></i></span>
-            <span><i class="fas fa-edit"></i></span>
+            <span><a href="task/{{task.id}}">{{task.title}}</a> </span>
+            <a href="delete/{{task.id}}"> <span><i class="fas fa-trash"></i></span></a>
+           <a href="edit/{{task.id}}"> <span><i class="fas fa-edit"></i></span></a>
         </li>
+        {% endfor %}
 
 
 
     </ul>
+    <div class="pagina">
+        <span class="pagina-Link">
+            {%if tasks.has_previous %}
+            <a href="?page={{tasks.previous_page_number}}"><i class="fas fa-arrow-left"></i>   voltar</a>
+            {%endif%}
+            <span class="current">
+                {{tasks.number}} de {{tasks.paginator.num_pages }}
+            </span>
+            {%if tasks.has_next %}
+            <a href="?page={{tasks.next_page_number}}"> <bold>Avançar</bold> <i class="fas fa-arrow-right"></i>    </a>
+            {%endif%}
+    
+        </span>    
+    
+    </div>
+    
 </div>
 
 {% endblock %}
