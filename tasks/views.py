@@ -14,10 +14,20 @@ def Ola(request):
     return(HttpResponse('Ola'))
 
 def tasklist(request) :
-    tasks_lista= task.objects.all().order_by('-create_at')
-    paginator = Paginator(tasks_lista,3)
-    page=request.GET.get('page')
-    tasks =paginator.get_page(page)
+
+    pesquisa=request.GET.get('pesquisa')
+    if pesquisa:
+      tasks=task.objects.filter(title__icontains=pesquisa)
+      
+            
+
+
+    else:  
+        
+        tasks_lista= task.objects.all().order_by('-create_at')
+        paginator = Paginator(tasks_lista,3)
+        page=request.GET.get('page')
+        tasks =paginator.get_page(page)
 
     return render(request,'tasks/list.html ',{'tasks':tasks})
 def taskview(request ,id):
@@ -61,10 +71,9 @@ def deletetask(request,id) :
     Task.delete()
 
     messages.info(request,'tarefa  '+Task.title + '  deletada com sucesso')
+    return redirect('/') 
 
 
-
-    return redirect('/')    
        
           
   

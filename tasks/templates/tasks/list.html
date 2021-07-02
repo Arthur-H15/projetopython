@@ -9,9 +9,11 @@
         {{message.tags}}</div>
     </a>
     <div class="col-9 pesquisa">
-        <input class="form-control"  type="text" id="search" name="pesquisa" placeholder="digite a tarefa">
-        <i class="fas fa-search "></i>
-    </div>  
+    <form method="GET" id="form-pesquisa">   
+        <input class="form-control"  type="text" id="search" name="pesquisa" placeholder="digite a tarefa" value="{{request.GET.pesquisa}}">
+        <i class="fas fa-search " id="pesquisa"></i>
+    </div> 
+ </form> 
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -22,6 +24,7 @@
 
 
     {% endif %}
+   
     <ul class="task-list">
         {%for task in tasks%}
         <li class="task-item">
@@ -39,9 +42,11 @@
             {%if tasks.has_previous %}
             <a href="?page={{tasks.previous_page_number}}"><i class="fas fa-arrow-left"></i>   voltar</a>
             {%endif%}
+            {%if tasks.paginator.num_pages%}
             <span class="current">
                 {{tasks.number}} de {{tasks.paginator.num_pages }}
             </span>
+            {%endif%}
             {%if tasks.has_next %}
             <a href="?page={{tasks.next_page_number}}"> <bold>Avançar</bold> <i class="fas fa-arrow-right"></i>    </a>
             {%endif%}
