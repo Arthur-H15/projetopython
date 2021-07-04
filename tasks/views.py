@@ -7,12 +7,14 @@ from .forms import TaskForm
 from .models import task
 from django.contrib import messages
 from django.core.paginator import Page, Paginator
+from django.contrib.auth.decorators import login_required
 
 
 
+    
 def Ola(request):
     return(HttpResponse('Ola'))
-
+@login_required
 def tasklist(request) :
 
     pesquisa=request.GET.get('pesquisa')
@@ -30,14 +32,15 @@ def tasklist(request) :
         tasks =paginator.get_page(page)
 
     return render(request,'tasks/list.html ',{'tasks':tasks})
+@login_required
 def taskview(request ,id):
     Task=get_object_or_404(task ,pk=id)
     
     return render(request,"tasks/task.html",{'task':Task})
-
+@login_required
 def yourname(request,name) :
     return render(request,'tasks/yourname.html',{'name':name})  
-
+@login_required
 def newTask(request):
     if request.method == 'POST' :
         form = TaskForm(request.POST)
@@ -51,7 +54,7 @@ def newTask(request):
         form = TaskForm()
         return render(request,'tasks/addtask.html',{'form':form})    
 
-
+@login_required
 def edittask(request,id) :
     Task= get_object_or_404(task,pk=id)
     form = TaskForm(instance=Task)
@@ -65,7 +68,7 @@ def edittask(request,id) :
        
     else:
         return render(request,'tasks/edittask.html',{'form':form,'task':Task})   
-
+@login_required
 def deletetask(request,id) :
     Task= get_object_or_404(task,pk=id)
     Task.delete()
