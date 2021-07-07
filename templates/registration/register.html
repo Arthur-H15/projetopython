@@ -1,24 +1,23 @@
 {% extends 'base.html' %}
 {%load crispy_forms_tags%}
-{%block title %}Acessar lista de tarefaz{% endblock %}
+{%block title %}registra na lista de tarefaz{% endblock %}
 {% block content %}
 <div class="row">
     <div class="col-md-4 offset-md-4">
 
         <div class="card auth-card">
             <div class="card-body">
-                <h4 class="card-title text-center">Acessar lista de tarefaz</h4>
+                <h4 class="card-title text-center">registar na lista de tarefaz</h4>
                 <form method="POST">
                     {%csrf_token%}
                     {{form|crispy}}
              
                    
-                    <button type="submit" class="btn btn-primary btn-block">Entra</button>
+                    <button type="submit" class="btn btn-primary btn-block">registar</button>
+                   <p class="form-p">Ja é cadastrado? <a href="/accounts/login" >Fazer Login</a></p>
                     
                 </form>
-                <a href="/accounts/register" class="btn btn-primary btn-register">cadastrar</a>
             </div>
-            
         </div>
     </div>
 

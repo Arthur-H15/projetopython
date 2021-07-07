@@ -2,9 +2,11 @@
 
 
 $(document).ready(function(){
+    var baseUrl='http://localhost:8000'
     var botaoD = $('.delete');
-    var pesquisa =$('#pesquisa')
-    var formpesquisa=$('#form-pesquisa')
+    var pesquisa =$('#pesquisa');
+    var formpesquisa=$('#form-pesquisa');
+    var filter=$('#filter');
     $(botaoD).on('click',function(e){
         e.preventDefault();
         var dellink=$(this).attr('href');
@@ -18,5 +20,13 @@ $(document).ready(function(){
         formpesquisa.submit();
 
     });
+    $(filter).change(function(){
+        var filter = $(this).val();
+       
 
+       
+      
+            window.location.href=baseUrl + '?filter='+ filter }
+    )
+    
 });

@@ -3,6 +3,30 @@
 {% block content %}
 <div class="offset-1 col-10 list-div">
     <h2>lista de tarefaz</h2>
+        <div class="container dashboard">
+            <div class="col-4 dashboard-box" id="dashboard-lastdays">
+                <h4>
+                    finalizadas nos ultimos 30 dias
+                </h4>
+                <span>{{taskcomplet}}</span>
+            </div>
+            <div class="col-4 dashboard-box" id="dashboard-done">
+                <h4>
+                    tarefaz concluidas
+                </h4>
+                <span>{{taskdone}}</span>
+            </div>
+            <div class="col-4 dashboard-box" id="dashboard-doing">
+                <h4>
+                    tarefaz para fazer
+                </h4>
+                <span>{{taskdoing}}</span>
+            </div>
+
+        </div>
+
+
+
     <a id="add-link" href="novatarefa/">
         <div class="col-2 botao">
         <i class="fas fa-plus"></i>Adicionar tarefa
@@ -13,6 +37,20 @@
         <input class="form-control"  type="text" id="search" name="pesquisa" placeholder="digite a tarefa" value="{{request.GET.pesquisa}}">
         <i class="fas fa-search " id="pesquisa"></i>
     </div> 
+    <div class="col-12 filter-div">
+        <span>Filtrar Por: </span>
+        <select name="filter" id="filter" class="form-control">
+            <option id="todos" value="todos">escolha uma opçao</option>
+            <option value="doing">fazendo</option>
+            <option value="done">feito</option>
+
+
+        </select>
+
+
+
+
+   </div>
  </form> 
     {% if messages %}
     <ul class="messages">
@@ -27,11 +65,16 @@
    
     <ul class="task-list">
         {%for task in tasks%}
+        {%if task.done == "doing"%}
         <li class="task-item">
+            {%else%}
+            <li class="task-done">
+            {%endif%}
             <span><a href="task/{{task.id}}">{{task.title}}</a> </span>
             <a class="delete" href="delete/{{task.id}}"> <span><i class="fas fa-trash"></i></span></a>
            <a href="edit/{{task.id}}"> <span><i class="fas fa-edit"></i></span></a>
-        </li>
+           <a href="trocarStatus/{{task.id}}"> <span><i class="fas fa-check"></i></span></a>
+        </li></li>
         {% endfor %}
 
 
