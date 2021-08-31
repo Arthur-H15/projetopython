@@ -9,6 +9,7 @@ class task(models.Model):
         ('doing','produzindo'),
         ('done','pronto'),
     )
+    
 
     title=models.CharField(max_length=300)
     descriçao=models.TextField()
